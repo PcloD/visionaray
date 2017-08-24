@@ -151,6 +151,9 @@ else()
     set_target_properties(unittests PROPERTIES APPEND_STRING PROPERTY
         COMPILE_FLAGS " ${CMAKE_INCLUDE_SYSTEM_FLAG_CXX} ${GTEST_INCLUDE_DIR}"
     )
+    get_property(TEST_VAR TARGET unittests PROPERTY COMPILE_FLAGS)
+
+    message("Compile flags: ${TEST_VAR}")
 endif()
 
 # Allow multi-line comments, some unit tests have verbose documentation with extra '/'s and '\'s
